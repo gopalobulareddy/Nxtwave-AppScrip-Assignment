@@ -2,10 +2,13 @@ import { Component } from "react";
 import { LuArrowBigDownDash, LuArrowBigUpDash } from "react-icons/lu";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 // import Header from '../components/Header';
-import Header from './Header';
-import Footer from '../components/Footer';
-import Products from '../components/Products';
+// import Header from './Header';
+// import Footer from '../components/Footer';
+// import Products from '../components/Products';
 import './index.css';
+import Header from '../Header';
+import Footer from '../Footer';
+import Products from '../Products';
 
 class Home extends Component {
   state = {

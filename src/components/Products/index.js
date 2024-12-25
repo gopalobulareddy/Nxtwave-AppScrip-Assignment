@@ -1,7 +1,8 @@
 import { Component } from "react";
 import { Vortex } from 'react-loader-spinner';
 import './index.css';
-import ProductItems from '../components/ProductItems';
+// import ProductItems from '../components/ProductItems';
+import ProductItems from '../ProductItems';
 
 class Products extends Component {
     state = {

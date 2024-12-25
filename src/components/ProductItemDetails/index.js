@@ -4,7 +4,8 @@ import { Vortex } from 'react-loader-spinner';
 import { BsDashSquare, BsPlusSquare } from 'react-icons/bs';
 import './index.css';
 // import Header from '../components/Header';
-import Header from './Header';
+// import Header from './Header';
+import Header from '../Header';
 
 const ProductItemDetails = () => {
     const [isLoadingScreen, setLoadingStatus] = useState(true);

@@ -1,115 +1,118 @@
-import { useState, useCallback } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom"
 import { HiMiniBars3 } from "react-icons/hi2";
 import { BsHandbag } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
 import { IoHeartOutline } from "react-icons/io5";
 import { CiUser } from "react-icons/ci";
 import { GiTireIronCross } from "react-icons/gi";
-import React from 'react';
-import './index.css';
+
+import './index.css'
 
 const Header = () => {
-  const [navbarToggle, setNavbarToggle] = useState(false);
+    const [navbarToggle, setNavbarToggle] = useState(false);
 
-  const onClickNavbar = useCallback(() => {
-    setNavbarToggle(prevState => !prevState);
-  }, []);
+    const onClickNavbar = () => {
+        setNavbarToggle(!navbarToggle)
+    }
 
-  const navigationClass = navbarToggle ? "navigation-items" : "hidden-navigation-items";
+    const isDisplayNavigationItems = navbarToggle ? "navigation-items-container" : "not-display-navigation-items-container"
 
-  return (
-    <div className="header-container">
-      {/* Small Device Header */}
-      <div className="small-device-header">
-        <div className="logo-container">
-          {navbarToggle ? (
-            <GiTireIronCross className="toggle-icon" size={25} onClick={onClickNavbar} aria-label="Close navigation" />
-          ) : (
-            <HiMiniBars3 className="toggle-icon" size={25} onClick={onClickNavbar} aria-label="Open navigation" />
-          )}
-          <Link to="/" className="logo-link">
-            <img 
-              src="https://res.cloudinary.com/dq1ktqbtb/image/upload/v1713597113/Logo_vfw1bu.png" 
-              alt="Logo" 
-              className="website-logo" 
-            />
-          </Link>
-        </div>
-        <div className="website-name">
-          <Link to="/" className="nav-link">
-            <h1>LOGO</h1>
-          </Link>
-        </div>
-        <ul className="nav-icons">
-          <li><FiSearch size={24} aria-label="Search" /></li>
-          <li><IoHeartOutline size={24} aria-label="Favorites" /></li>
-          <li>
-            <Link to="/cart" className="nav-link">
-              <BsHandbag size={21} aria-label="Cart" />
-            </Link>
-          </li>
-        </ul>
-      </div>
 
-      {/* Large Device Header */}
-      <div className="large-device-header">
-        <div className="logo-container">
-          <Link to="/" className="logo-link">
-            <img 
-              src="https://res.cloudinary.com/dq1ktqbtb/image/upload/v1713597113/Logo_vfw1bu.png" 
-              alt="Logo" 
-              className="website-logo" 
-            />
-          </Link>
-        </div>
-        <div className="website-name">
-          <Link to="/" className="nav-link">
-            <h1>LOGO</h1>
-          </Link>
-        </div>
-        <ul className="nav-icons">
-          <li><FiSearch size={24} aria-label="Search" /></li>
-          <li><IoHeartOutline size={24} aria-label="Favorites" /></li>
-          <li>
-            <Link to="/cart" className="nav-link">
-              <BsHandbag size={21} aria-label="Cart" />
-            </Link>
-          </li>
-          <li><CiUser size={24} aria-label="User" /></li>
-          <li>
-            <select className="language-select" aria-label="Language selection">
-              <option value="ENG">ENG</option>
-              <option value="HIN">HIN</option>
-              <option value="TEL">TEL</option>
-            </select>
-          </li>
-        </ul>
-      </div>
 
-      {/* Small Device Bottom Navigation */}
-      <div className="small-device-bottom-nav">
-        <ul className={navigationClass}>
-          <li className="nav-item">SHOP</li>
-          <li className="nav-item">SKILLS</li>
-          <li className="nav-item">STORIES</li>
-          <li className="nav-item">ABOUT</li>
-          <li className="nav-item">CONTACT US</li>
-        </ul>
-      </div>
+    return (
+        <>
+            <div className="header-route-container">
+                <div className='small-device-header-container'>
+                    <div className='logo-container'>
+                        {navbarToggle ? (
+                            <GiTireIronCross className="cross-mark-icon" size={25} onClick={onClickNavbar} />
+                        ) : (
+                            <HiMiniBars3 className="nav-bar-icon" size={25} onClick={onClickNavbar} />)
+                        }
+                        <Link to="/" className="nav-link">
+                            <img src="https://res.cloudinary.com/dq1ktqbtb/image/upload/v1713597113/Logo_vfw1bu.png" alt="" className="website-logo" />
+                        </Link>
+                    </div>
+                    <div className="website-name-container">
+                        <Link to="/" className="nav-link">
+                            <h1 className="website-name">LOGO</h1>
+                        </Link>
+                    </div>
+                    <ul className="nav-items-container">
+                        <li className="nav-item">
+                            <FiSearch size={24} />
+                        </li>
+                        <li className="nav-item">
+                            <IoHeartOutline size={24} />
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/cart" className="nav-link">
+                                <BsHandbag size={21} />
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
 
-      {/* Large Device Bottom Navigation */}
-      <div className="large-device-bottom-nav">
-        <ul className="navigation-items">
-          <li className="nav-item">SHOP</li>
-          <li className="nav-item">SKILLS</li>
-          <li className="nav-item">STORIES</li>
-          <li className="nav-item">ABOUT</li>
-          <li className="nav-item">CONTACT US</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
+                <div className="large-device-header-container">
+                    <div className='logo-container'>
+                        <Link to="/" className="nav-link">
+                            <img src="https://res.cloudinary.com/dq1ktqbtb/image/upload/v1713597113/Logo_vfw1bu.png" alt="" className="website-logo" />
+                        </Link>
+                    </div>
+                    <div className="website-name-container">
+                        <Link to="/" className="nav-link">
+                            <h1 className="website-name">LOGO</h1>
+                        </Link>
+                    </div>
+                    <ul className="nav-items-container">
+                        <li className="nav-item">
+                            <FiSearch size={24} />
+                        </li>
+                        <li className="nav-item">
+                            <IoHeartOutline size={24} />
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/cart" className="nav-link">
+                                <BsHandbag size={21} />
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <CiUser size={24} />
+                        </li>
+                        <li className="nav-item">
+                            <select className="language-select">
+                                <option id="English">ENG</option>
+                                <option id="HINDI">HIN</option>
+                                <option id="TELUGU">TEL</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
 
+                <div className="small-device-bottom-header-container">
+                    <ul className={isDisplayNavigationItems}>
+                        <li className="navigation-item">SHOP</li>
+                        <li className="navigation-item">SKILLS</li>
+                        <li className="navigation-item">STORIES</li>
+                        <li className="navigation-item">ABOUT</li>
+                        <li className="navigation-item">CONTACT US</li>
+                    </ul>
+                </div>
+
+                <div className="large-device-bottom-header-container">
+                    <ul className="navigation-items-container">
+                        <li className="navigation-item">SHOP</li>
+                        <li className="navigation-item">SKILLS</li>
+                        <li className="navigation-item">STORIES</li>
+                        <li className="navigation-item">ABOUT</li>
+                        <li className="navigation-item">CONTACT US</li>
+                    </ul>
+                </div>
+
+            </div>
+        </>
+    )
+
+}
 export default Header;
